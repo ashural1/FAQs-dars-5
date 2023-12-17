@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-[#F8EEFF]">
+        <div class="bg-[#301534] w-[100%] h-[320px] flex relative items-center justify-items-center">
+            <div class="m-auto w-3/5 h-2/4">
+                <div class="classs bg-[#fff] m-auto py-10 rounded-2xl">
+                    <div
+                    class="my-[40px] ml-[60px] flex items-center gap-[24px] self-stretch"
+                  >
+                    <img src="ph_star-four-fill.png" alt="" class="ml-[60px]" />
+                    <h1
+                      class="text-[#301534] font-['Work Sans'] text-[56px] leading-normal"
+                    >
+                      FAQs
+                    </h1>
+                  </div>
+        <div class="my-10 max-w-2xl mx-auto space-y-4 lg:space-y-6" x-data="{ faq, faq_selected: null }">
+          <template x-for="(item, index) in faq" :key="`item-{$index}`">
+            <div class="item bg-white shadow-md rounded-md p-3">
+              <div class="flex items-center cursor-pointer" @click="faq_selected !== index ? faq_selected = index : faq_selected = null">
+              
+                <div class="ml-3 md:ml-4 lg:ml-6 md:text-lg text-[#301534]  hover:text-[#AD28EB]">
+                  <span x-text="item.question"></span>
+                </div>
+              </div>
+              <div class="relative overflow-hidden transition-all max-h-0 duration-700" x-bind:style="faq_selected === index ? `max-height:  ${ $el.scrollHeight }px` : ``">
+                <div class="text-gray-700 ml-8 md:ml-10 pl-3 md:pl-4 lg:pl-6 py-2 space-y-3">
+                  <template x-for="(ans, index) in item.answer" :key="`item-ans-{$index}`">
+                    <p x-text="ans" class="text-[#8B6990]"></p>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+    </div>
+    </div>
+    </div>
+      </div>
+        <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+        <script  src="mine.js"></script>
+</body>
+</html>
